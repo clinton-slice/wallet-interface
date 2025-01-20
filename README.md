@@ -1,46 +1,146 @@
-# Getting Started with Create React App
+Here’s a detailed `README.md` file that includes setup instructions, assumptions, and areas for improvement.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# **Web3 Wallet Interface**
 
-In the project directory, you can run:
+This project is a Web3 wallet interface that allows users to:
 
-### `npm start`
+- Connect their wallet using MetaMask.
+- Wrap ETH into WETH.
+- Swap WETH for an ERC20 token using Uniswap V2.
+- View the last three transactions made through Uniswap.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## **Table of Contents**
 
-### `npm test`
+1. [Setup Instructions](#setup-instructions)
+2. [Features](#features)
+3. [Assumptions](#assumptions)
+4. [Areas for Improvement](#areas-for-improvement)
+5. [Technologies Used](#technologies-used)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Setup Instructions**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the project locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/your-username/web3-wallet-interface.git
+cd web3-wallet-interface
+```
 
-### `npm run eject`
+### 2. Install dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ensure you have **Node.js** (v16 or above) and **npm** installed. Then run:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Start the development server
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+This will start the application on `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Connect MetaMask
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Ensure you have MetaMask installed in your browser.
+- Switch MetaMask to the Ethereum mainnet or a testnet such as Goerli.
+
+---
+
+## **Features**
+
+1. **Wallet Connection**
+
+   - Connect to MetaMask to display the user's wallet address and ETH balance.
+
+2. **Wrap ETH to WETH**
+
+   - Interact with the WETH contract to convert ETH to WETH.
+
+3. **Swap WETH for ERC20 Tokens**
+
+   - Swap WETH for any ERC20 token using the Uniswap V2 Router contract.
+
+4. **Transaction History**
+   - Display the last three transactions made through Uniswap, including:
+     - Amount of WETH and ERC20 involved.
+     - Recipient address (truncated).
+     - Status (success, pending, failed).
+     - Timestamp.
+
+---
+
+## **Assumptions**
+
+1. **Mock Data for Transaction History**
+
+   - Transaction history is maintained in memory using React Context and does not persist between sessions.
+
+2. **Supported Wallet**
+
+   - The application currently supports only MetaMask for wallet connection.
+
+3. **Gas Fee Calculation**
+
+   - Gas fees are estimated using the `ethers.js` library, and a flat gas limit of `21000` is assumed for most transactions.
+
+4. **Token Details**
+   - ERC20 token details, such as decimals and symbols, are not fetched dynamically but can be extended in future iterations.
+
+---
+
+## **Areas for Potential Improvement**
+
+1. **Persistent Transaction History**
+
+   - Store transaction history in a database or a decentralized storage solution (e.g., IPFS).
+
+2. **Enhanced Error Handling**
+
+   - Provide more detailed error messages for failed transactions, such as insufficient balance or incorrect token addresses.
+
+3. **Token Metadata**
+
+   - Fetch token metadata (e.g., symbol, decimals) dynamically using the ERC20 contract ABI.
+
+4. **Multi-Wallet Support**
+
+   - Extend support to wallets other than MetaMask (e.g., WalletConnect, Coinbase Wallet).
+
+5. **Responsive Design**
+
+   - Optimize the interface for mobile and tablet devices for better usability.
+
+6. **Unit and Integration Tests**
+
+   - Add unit tests for components and integration tests for wallet interactions and transactions.
+
+7. **Advanced Gas Fee Calculations**
+
+   - Use dynamic gas estimations for transactions, including swaps and wrapping.
+
+8. **Improved UI/UX**
+   - Add tooltips, loading spinners, and visual feedback for better user experience.
+
+---
+
+## **Technologies Used**
+
+- **React**: Frontend library for building the user interface.
+- **TypeScript**: Static typing for better code reliability.
+- **TailwindCSS**: Utility-first CSS framework for styling.
+- **ethers.js**: Library for interacting with the Ethereum blockchain.
+- **Uniswap SDK**: For interacting with the Uniswap V2 protocol.
+- **MetaMask**: Ethereum wallet used for signing transactions.
+
+---
