@@ -1,7 +1,3 @@
-Here’s a detailed `README.md` file that includes setup instructions, assumptions, and areas for improvement.
-
----
-
 # **Web3 Wallet Interface**
 
 This project is a Web3 wallet interface that allows users to:
